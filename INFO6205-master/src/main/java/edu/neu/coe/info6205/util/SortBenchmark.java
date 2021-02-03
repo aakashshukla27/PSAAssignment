@@ -9,6 +9,7 @@ import static edu.neu.coe.info6205.util.Utilities.formatWhole;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.time.chrono.ChronoLocalDateTime;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import edu.neu.coe.info6205.sort.BaseHelper;
+import edu.neu.coe.info6205.sort.GenericSort;
 import edu.neu.coe.info6205.sort.Helper;
 import edu.neu.coe.info6205.sort.Sort;
 import edu.neu.coe.info6205.sort.SortWithHelper;
@@ -44,21 +46,46 @@ public class SortBenchmark {
         logger.info("SortBenchmark.main: " + config.get("insertionsort", "version") + " with word counts: " + Arrays.toString(args));
         if (args.length == 0) logger.warn("No word counts specified on the command line");
         SortBenchmark benchmark = new SortBenchmark(config);
-//        for(int i= 0; i < 5; i++) {
-//        	int temp = 10000;
-//        	 benchmark.sortIntegers(temp);
-//        	 temp *= 2;
-//        }
-        benchmark.sortIntegers(10000);
+        int temp = 100;
+        for(int i= 0; i < 10; i++) {
+        	
+        	System.out.println(temp);
+        	 benchmark.sortIntegers(temp);
+        	 temp *= 2;
+        }
+       // benchmark.sortIntegers(10000);
         //benchmark.sortStrings(Arrays.stream(args).map(Integer::parseInt));
         //benchmark.sortLocalDateTimes(100000);
     }
 
+    
+    Integer[] generateSemiSortedArray(int n) {
+    	//System.out.println("Entered loop");
+    	Random random = new Random();
+    	Integer[] result = new Integer[n];  
+    	 for (Integer i = 0; i <n; i++) result[i] = i;
+	     for (Integer j=(n/2)+1; j<n; j++) result[j] = random.nextInt();
+	     return result;
+    }
+    
     void sortIntegers(final int n) {
     	Random random = new Random();
     	final Supplier<Integer[]> intsSupplier = () -> {
-            Integer[] result = new Integer[n];            
-			for (Integer i = n-1; i >=0; i--) result[i] = random.nextInt();
+            Integer[] result = new Integer[n];
+            //Random Array
+            for (Integer i = 0; i <n; i++) result[i] = random.nextInt();
+            //Reversed Array
+//    	int temp = n;
+//	    for(Integer i=0; i<n; i++) {
+//	    	result[i] = temp;
+//	    	temp--;
+//	    	
+//	    }
+	    //Sorted Array
+			//for (Integer i = 0; i <n; i++) result[i] = i;
+	    //Semi Sorted Array
+           // result = generateSemiSortedArray(n);
+            
             return result;
         };
         final double t1 = new Benchmark_Timer<Integer[]>(
@@ -70,35 +97,7 @@ public class SortBenchmark {
         ).runFromSupplier(intsSupplier, 100);
         for (TimeLogger timeLogger : timeLoggersLinearithmic) timeLogger.log(t1, n);
         
-//        final Supplier<Integer[]> integersSupplier = () -> {
-//            Integer[] result = (Integer[]) Array.newInstance(Integer.class, n);
-//            for (int i = 0; i < n; i++) result[i] = random.nextInt();
-//            return result;
-//        };
-//      
-//        final double t2 = new Benchmark_Timer<Integer[]>(
-//                "integerArraysorter",
-//                (xs) -> Arrays.copyOf(xs, xs.length),
-//                Arrays::sort,
-//                null
-//        ).runFromSupplier(integersSupplier, 100);
-//        for (TimeLogger timeLogger : timeLoggersLinearithmic) timeLogger.log(t2, n);
-        
-        
-//    	BaseHelper<Integer> helper = new BaseHelper<>("InsertionSort", n);
-//    	GenericSort<Integer> sorter = new InsertionSort<Integer>(helper);
-//	    final Supplier<Integer[]> integersSupplier = () -> {
-//	    Integer[] result = (Integer[]) Array.newInstance(Integer.class, n);
-//	    for (int i = 0; i < n; i++) result[i] = random.nextInt();
-//	      return result;
-//	    };
-//	      final double t2 = new Benchmark_Timer<Integer[]>(
-//	      "integerArraysorter",
-//	      (xs) -> Arrays.copyOf(xs, xs.length),
-//	      Arrays::sort,
-//	      null
-//		).runFromSupplier(integersSupplier, 100);
-//		for (TimeLogger timeLogger : timeLoggersLinearithmic) timeLogger.log(t2, n);
+
     }
     
     
