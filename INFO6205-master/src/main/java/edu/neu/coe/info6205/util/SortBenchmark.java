@@ -95,7 +95,7 @@ public class SortBenchmark {
                         i.sort(xs,1,xs.length);},
                 null
         ).runFromSupplier(intsSupplier, 100);
-        for (TimeLogger timeLogger : timeLoggersLinearithmic) timeLogger.log(t1, n);
+        for (TimeLogger timeLogger : timeLoggersQuadratic) timeLogger.log(t1, n);
         
 
     }
