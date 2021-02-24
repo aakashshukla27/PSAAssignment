@@ -30,7 +30,7 @@ public class GraphTemp {
                 redundant++;
                 System.out.println("Pair (" + p + "," + q + ") already connected");
             }
-            if(uf.isCycle()){
+            if(uf.components() == 1){
                 cycle = true;
                 System.out.println("Successful Unions: " + successfulUnion);
                 System.out.println("Redundant Unions: " + redundant);
