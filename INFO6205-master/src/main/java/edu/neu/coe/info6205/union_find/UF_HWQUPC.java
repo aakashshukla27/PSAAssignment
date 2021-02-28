@@ -84,12 +84,14 @@ public class UF_HWQUPC implements UF {
         // TO BE IMPLEMENTED
 
         while(root!= getParent(root)){
+
             root=getParent(root);
         }
         if(pathCompression){
             parent[p] = root;
 
         }
+
 
         return root;
     }

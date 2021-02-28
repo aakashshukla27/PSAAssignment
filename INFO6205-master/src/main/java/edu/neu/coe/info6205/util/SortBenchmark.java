@@ -48,10 +48,9 @@ public class SortBenchmark {
         SortBenchmark benchmark = new SortBenchmark(config);
         int temp = 100;
         for(int i= 0; i < 10; i++) {
-        	
         	System.out.println(temp);
-        	 benchmark.sortIntegers(temp);
-        	 temp *= 2;
+        	benchmark.sortIntegers(temp);
+        	temp *= 2;
         }
        // benchmark.sortIntegers(10000);
         //benchmark.sortStrings(Arrays.stream(args).map(Integer::parseInt));
@@ -60,7 +59,6 @@ public class SortBenchmark {
 
     
     Integer[] generateSemiSortedArray(int n) {
-    	//System.out.println("Entered loop");
     	Random random = new Random();
     	Integer[] result = new Integer[n];  
     	 for (Integer i = 0; i <n; i++) result[i] = i;
@@ -75,16 +73,16 @@ public class SortBenchmark {
             //Random Array
             for (Integer i = 0; i <n; i++) result[i] = random.nextInt();
             //Reversed Array
-//    	int temp = n;
-//	    for(Integer i=0; i<n; i++) {
-//	    	result[i] = temp;
-//	    	temp--;
-//	    	
-//	    }
-	    //Sorted Array
+            //int temp = n;
+            //for(Integer i=0; i<n; i++) {
+            //  result[i] = temp;
+            // 	temp--;
+            //
+            //}
+	        //Sorted Array
 			//for (Integer i = 0; i <n; i++) result[i] = i;
-	    //Semi Sorted Array
-           // result = generateSemiSortedArray(n);
+	        //Semi Sorted Array
+            // result = generateSemiSortedArray(n);
             
             return result;
         };

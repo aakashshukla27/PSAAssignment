@@ -83,60 +83,7 @@ public class Timer {
         
         
         // TO BE IMPLEMENTED: note that the timer is running when this method is called and should still be running when it returns.
-//       running = false;
-//       for(int i =0; i<n;i++) {
-//        	//running = true;
-//    	   resume();
-//    	   pause();
-//    	   if(null != preFunction) {
-//        		preFunction.apply(supplier.get());
-//    	   }  
-//    	   resume();        
-//    	   U func = function.apply(supplier.get());
-//    	   pauseAndLap();
-//    	   if(postFunction != null) {
-//    		   postFunction.accept(func);
-//    	   }        	
-//        }
-//        double temp = meanLapTime();
-//        running = true;
-//        return temp;
-        
-        
-//        for(int i =0; i<n;i++) {
-//        	pause();
-//        	if(preFunction != null) {
-//        		preFunction.apply(supplier.get());
-//        	}        	
-//        	
-//        	resume(); 
-//        	lap();
-//        	U func = function.apply(supplier.get());
-//        	pause();
-//        	if(postFunction != null) {
-//        		postFunction.accept(func);
-//        	}
-//        	resume();  
-//        }
-//        pause();
-//        return meanLapTime();
-        
-        
-        
-//        for(int i =0; i<n;i++) {
-//        	if(preFunction != null) {
-//        		preFunction.apply(supplier.get());
-//        	}        	
-//        	pause();
-//        	resume();        
-//        	U func = function.apply(supplier.get());
-//        	pauseAndLap();
-//        	if(postFunction != null) {
-//        		postFunction.accept(func);
-//        	}
-//        	resume();  
-//        }
-//        return stop();
+
     }
 
     /**
