@@ -128,7 +128,7 @@ public class GraphTemp {
         System.out.println("With path compression - assignment");
         final Supplier<Integer> input = () -> {
 
-            return 1600;
+            return 16000;
         };
         final double t1 = new Benchmark_Timer<Integer>("input size: " + 16000 ,
                 xs -> countPathCompression(xs)).runFromSupplier( input, 100);
@@ -136,7 +136,7 @@ public class GraphTemp {
         System.out.println(t1);
         final Supplier<Integer> input2 = () -> {
 
-            return 3200;
+            return 32000;
         };
         final double t2 = new Benchmark_Timer<Integer>("input size: " + 32000 ,
                 xs -> countPathCompression(xs)).runFromSupplier( input2, 100);
@@ -144,7 +144,7 @@ public class GraphTemp {
         System.out.println(t2);
         final Supplier<Integer> input3 = () -> {
 
-            return 6400;
+            return 64000;
         };
         final double t3 = new Benchmark_Timer<Integer>("input size: " + 64000 ,
                 xs -> countPathCompression(xs)).runFromSupplier( input3, 100);
@@ -152,7 +152,7 @@ public class GraphTemp {
         System.out.println(t3);
         final Supplier<Integer> input4 = () -> {
 
-            return 12800;
+            return 128000;
         };
         final double t4 = new Benchmark_Timer<Integer>("input size: " + 128000 ,
                 xs -> countPathCompression(xs)).runFromSupplier( input4, 100);
@@ -160,7 +160,7 @@ public class GraphTemp {
         System.out.println(t4);
         final Supplier<Integer> input5 = () -> {
 
-            return 25600;
+            return 256000;
         };
         final double t5 = new Benchmark_Timer<Integer>("input size: " + 256000 ,
                 xs -> countPathCompression(xs)).runFromSupplier( input5, 100);
